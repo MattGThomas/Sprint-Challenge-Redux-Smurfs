@@ -22,7 +22,6 @@ export const GET_SMURFS_FAILED = 'GET_SMURFS_FAILED'
 export function getSmurfs() {
   return (dispatch) => {
     dispatch({ type: GETTING_SMURFS })
-
     axios.get('http://localhost:3333/smurfs')
       .then((res) => {
         dispatch({ type: GET_SMURFS_COMPLETE, payload: res.data })
