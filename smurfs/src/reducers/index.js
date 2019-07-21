@@ -3,7 +3,7 @@
 */
 import {
   GETTING_SMURFS,
-  GET_SMURF_COMPLETE,
+  GET_SMURFS_COMPLETE,
   GET_SMURFS_FAILED,
   ADD_SMURF
 } from '../actions'
