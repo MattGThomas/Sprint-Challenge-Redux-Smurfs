@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
  `How do I ensure that my component links the state to props?`
  */
 import { getSmurfs } from '../actions'
-import { Smurfs } from './Smurfs'
+import SmurfsList from './SmurfsList'
 import AddSmurfForm from './AddSmurfForm'
 
 class App extends Component {
@@ -25,8 +25,8 @@ class App extends Component {
         <div>Welcome to your Redux version of Smurfs!</div>
         <div>Start inside of your `src/index.js` file!</div>
         <div>Have fun!</div>
-        <Smurfs />
-        <AddSmurfForm smurfs={this.state.smurfs} />
+        <SmurfsList smurfs={this.props.smurfs} />
+        <AddSmurfForm smurfs={this.props.smurfs} />
       </div>
     );
   }

@@ -1,15 +1,13 @@
 import React from 'react'
 
-export const Smurfs = (props) => {
+const Smurfs = (props) => {
     return (
-        <div>
-            {props.smurfs.map(smurf => {
-                <div>
-                    <p>{smurf.name}</p>
-                    <p>{smurf.age}</p>
-                    <p>{smurf.height}</p>
-                    </div>
-            })}
+        <div className='smurf'>
+            <h2>{props.smurf.name}</h2>
+            <p>{props.smurf.age}</p>
+            <p>{props.smurf.height}</p>
         </div>
     )
+
 }
+export default Smurfs
