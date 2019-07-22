@@ -1,8 +1,8 @@
 import React from 'react'
-import { connect } from 'redux'
+import { connect } from 'react-redux'
 import { newSmurf } from '../actions'
 
-class AddSmurfForm extends Component {
+class AddSmurfForm extends React.Component {
     state = {
         name: '',
         age: '',

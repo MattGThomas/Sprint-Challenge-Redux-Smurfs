@@ -21,8 +21,7 @@ export const ADD_SMURF_FAILED = 'ADD_SMURF_FAILED'
    U - updateSmurf
    D - deleteSmurf
 */
-export function getSmurfs() {
-  return (dispatch) => {
+export const getSmurfs = () => dispatch => {
     dispatch({ type: GETTING_SMURFS })
     axios.get('http://localhost:3333/smurfs')
       .then((res) => {
@@ -31,10 +30,8 @@ export function getSmurfs() {
       .catch((err) => {
         dispatch({ type: GET_SMURFS_FAILED, payload: err.response.data })
       })
-  }
 }
-export function newSmurf() {
-  return (newSmurf) => {
+export const newSmurf = newSmurf => dispatch => {
     dispatch({ type: ADDING_SMURF })
     axios.post('http://localhost:3333/smurfs', newSmurf)
       .then((res) => {
@@ -43,5 +40,4 @@ export function newSmurf() {
       .catch((err) => {
         dispatch({ type: ADD_SMURF_FAILED, payload: err})
       })
-  }
 }
