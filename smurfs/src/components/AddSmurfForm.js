@@ -55,3 +55,15 @@ class AddSmurfForm extends Component {
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        addingSmurf: state.addingSmurf
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { 
+        newSmurf
+    }
+)(AddSmurfForm)

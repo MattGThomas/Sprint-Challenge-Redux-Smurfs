@@ -8,12 +8,17 @@ import { connect } from 'react-redux'
  `How do I ensure that my component links the state to props?`
  */
 import { getSmurfs } from '../actions'
+import { Smurfs } from './Smurfs'
+import AddSmurfForm from './AddSmurfForm'
 
 class App extends Component {
   componentDidMount() {
     this.props.getSmurfs()
   }
   render() {
+    if(this.props.gettingSmurfs) {
+      return <h2>please wait, page loading...</h2>
+    }
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
@@ -26,7 +31,8 @@ class App extends Component {
 }
 const mapStateToProps = state => {
   return {
-    smurfs: state.smurfs
+    smurfs: state.smurfs,
+    gettingSmurfs: state.gettingSmurfs
   }
 }
 export default connect(

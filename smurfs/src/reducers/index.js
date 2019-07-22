@@ -5,7 +5,9 @@ import {
   GETTING_SMURFS,
   GET_SMURFS_COMPLETE,
   GET_SMURFS_FAILED,
-  ADD_SMURF
+  ADDING_SMURF,
+  ADD_SMURF_SUCCESS,
+  ADD_SMURF_FAILED
 } from '../actions'
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -21,7 +23,8 @@ import {
 const initialState = {
   smurfs: [],
   gettingSmurfs: false,
-  addingSmurf: false
+  addingSmurf: false,
+  error: null
 }
 
 /*
@@ -37,7 +40,8 @@ export default function(state = initialState, action) {
       return {
         ...state,
         gettingSmurfs: true,
-        addingSmurf: false
+        addingSmurf: false,
+        error: null
       }
     }
     case GET_SMURFS_COMPLETE: {
@@ -45,13 +49,39 @@ export default function(state = initialState, action) {
         ...state,
         gettingSmurfs: false,
         addingSmurf: false,
-        smurfs: [...state.smurfs, ...action.payload]
+        smurfs: [...state.smurfs, ...action.payload],
+        error: null
       }
     }
     case GET_SMURFS_FAILED: {
       return {
         ...state,
         gettingSmurfs: true,
+        addingSmurf: false,
+        error: action.payload,
+        error: null
+      }
+    }
+    case ADDING_SMURF: {
+      return {
+        ...state,
+        gettingSmurfs: false,
+        addingSmurf: true,
+        error: null
+      }
+    }
+    case ADD_SMURF_SUCCESS: {
+      return {
+        ...state,
+        gettingSmurfs: false,
+        addingSmurf: false,
+        error: null
+      }
+    }
+    case ADD_SMURF_FAILED: {
+      return {
+        ...state,
+        gettingSmurfs: false,
         addingSmurf: false,
         error: action.payload
       }
